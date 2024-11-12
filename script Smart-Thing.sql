@@ -46,9 +46,8 @@ CREATE TABLE reclamacao
 CREATE TABLE demandaPesquisa 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    nivel_interesse INT,
-    timeLeitura TIME,
-    dataLeitura DATETIME,
+    nivelInteresse INT,
+    dataLeitura DATE,
     dataExtracao DATETIME,
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
@@ -59,7 +58,7 @@ CREATE TABLE avaliacao
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     qtdEstrela INT,
-    descricao_comentario TEXT,
+    descricaoComentario TEXT,
     dataExtracao DATETIME,
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
