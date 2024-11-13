@@ -1,37 +1,34 @@
 CREATE DATABASE IF NOT EXISTS smartthink;
 USE smartthink;
 
--- Tabela de Empresas
 CREATE TABLE empresa 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codigo VARCHAR(15),
     nomeFantasia VARCHAR(65),
-    razaoSocial VARCHAR(65),
+    razaoSocial VARCHAR(80),
     apelido VARCHAR(40),
     cnpj CHAR(14),
     cep CHAR(8),
     logradouro VARCHAR(100),
-    email VARCHAR(75),
+    email VARCHAR(100),
     telefone CHAR(11),
     fkMarca INT,
     FOREIGN KEY (fkMarca) REFERENCES empresa(id) ON DELETE SET NULL
 );
 
--- Tabela de Funcionários
 CREATE TABLE funcionario 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(85),
     cpf CHAR(11),
     email VARCHAR(100),
-    senha VARCHAR(30),
+    senha VARCHAR(20),
     fotoPerfil BLOB,
     fkEmpresa INT,
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
--- Tabela de Reclamações
 CREATE TABLE reclamacao
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -42,7 +39,6 @@ CREATE TABLE reclamacao
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
--- Tabela de Demanda Pesquisa 
 CREATE TABLE demandaPesquisa 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,7 +49,6 @@ CREATE TABLE demandaPesquisa
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
--- Tabela de Avaliação
 CREATE TABLE avaliacao 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -64,28 +59,33 @@ CREATE TABLE avaliacao
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
--- Tabela de Prompts 
-CREATE TABLE prompt 
+CREATE TABLE promptModelo 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo TEXT,
     pergunta TEXT,
-    fkReclamacao INT,
-    fkDemandaPesquisa INT,
-    fkAvaliacao INT,
-    FOREIGN KEY (fkReclamacao) REFERENCES reclamacao(id) ON DELETE SET NULL,
-    FOREIGN KEY (fkDemandaPesquisa) REFERENCES demandaPesquisa(id) ON DELETE SET NULL,
-    FOREIGN KEY (fkAvaliacao) REFERENCES avaliacao(id) ON DELETE SET NULL
+    fkEmpresa INT,
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
--- Tabela de Insights
+CREATE TABLE promptElaborado 
+(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titulo TEXT,
+    pergunta TEXT,
+    fkPromptModelo INT,
+    fkEmpresa INT,
+    FOREIGN KEY (fkPromptModelo) REFERENCES promptModelo(id) ON DELETE CASCADE,
+    FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
+);
+
 CREATE TABLE insights 
 (
     id INT AUTO_INCREMENT PRIMARY KEY,
     dataHora DATETIME,
     resposta TEXT,
-    fkPrompt INT,
-    FOREIGN KEY (fkPrompt) REFERENCES prompt(id) ON DELETE CASCADE
+    fkPromptElaborado INT,
+    FOREIGN KEY (fkPromptElaborado) REFERENCES promptElaborado(id) ON DELETE CASCADE
 );
 
 INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, cep, logradouro, email, telefone, fkMarca)
@@ -108,3 +108,18 @@ VALUES
 ('Paula Mendes', '65432109876', 'paula.mendes@kfc.com', 'senha234', NULL, 4),
 ('Lucas Martins', '56789012345', 'lucas.martins@pizzahut.com', 'senha567', NULL, 5),
 ('Fernanda Rocha', '54321098765', 'fernanda.rocha@pizzahut.com', 'senha890', NULL, 5);
+
+INSERT INTO promptModelo (nome, descricao, fkEmpresa)
+VALUES
+('Prompt A', 'Descrição do Prompt A', 1),
+('Prompt B', 'Descrição do Prompt B', 2);
+
+INSERT INTO promptElaborado (nome, descricao, fkPromptModelo, fkEmpresa)
+VALUES
+('Prompt Elaborado A', 'Descrição do Prompt Elaborado A', 1, 1),
+('Prompt Elaborado B', 'Descrição do Prompt Elaborado B', 2, 2);
+
+INSERT INTO insights (dataHora, resposta, fkPromptElaborado)
+VALUES
+(NOW(), 'Resposta ao Prompt Elaborado A', 1),
+(NOW(), 'Resposta ao Prompt Elaborado B', 2);
