@@ -59,33 +59,13 @@ CREATE TABLE avaliacao
     FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
 );
 
-CREATE TABLE promptModelo 
+CREATE TABLE solicitacoes
 (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo TEXT,
-    pergunta TEXT,
-    fkEmpresa INT,
-    FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
-);
-
-CREATE TABLE promptElaborado 
-(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    titulo TEXT,
-    pergunta TEXT,
-    fkPromptModelo INT,
-    fkEmpresa INT,
-    FOREIGN KEY (fkPromptModelo) REFERENCES promptModelo(id) ON DELETE CASCADE,
-    FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE
-);
-
-CREATE TABLE insights 
-(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    dataHora DATETIME,
-    resposta TEXT,
-    fkPromptElaborado INT,
-    FOREIGN KEY (fkPromptElaborado) REFERENCES promptElaborado(id) ON DELETE CASCADE
+	id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60),
+    email VARCHAR(80),
+    telefone VARCHAR(11),
+    empresa VARCHAR(40)
 );
 
 INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, cep, logradouro, email, telefone, fkMarca)
