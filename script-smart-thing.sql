@@ -52,25 +52,25 @@ CREATE TABLE avaliacao (
 
 
 -- Inserindo Marcas
-INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, estado, cep, logradouro, email, telefone, tipo, fkMarca)
+INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, estado, cep, logradouro, email, telefone, fkMarca)
 VALUES
-('MARCA001', 'McDonald\'s', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD', '42110090000140', 'ATIVO','04578005', 'Av. Dr. Chucri Zaidan, 920', 'contato@mcdonalds.com.br', '1121555070', 'MARCA', NULL),
-('MARCA002', 'Burger King', 'Burger King do Brasil S.A.', 'BK', '02747380000150', 'INATIVO', '04578905', 'Av. Juscelino Kubitschek, 1500', 'contato@burgerking.com.br', '1121236100', 'MARCA', NULL),
-('MARCA003', 'Subway', 'Subway Partners Comércio Ltda.', 'Sub', '02963710000127', 'INATIVO','04083002', 'Av. Paulista, 1000', 'contato@subway.com.br', '1132674000', 'MARCA', NULL),
-('MARCA004', 'KFC', 'KFC Brasil Ltda.', 'Kentucky', '03657120000189', 'ATIVO' ,'04083001', 'Rua Vergueiro, 500', 'contato@kfc.com.br', '1133456000', 'MARCA', NULL),
-('MARCA005', 'Pizza Hut', 'Pizza Hut Brasil S.A.', 'PizzaHut', '08211629000120','INATIVO' ,'01454000', 'Rua Augusta, 1500', 'contato@pizzahut.com.br', '1123567900', 'MARCA', NULL);
+('MARCA001', 'McDonald\s', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD', '42110090000140', 'ATIVO', '04578005', 'Av. Dr. Chucri Zaidan, 920', 'contato@mcdonalds.com.br', '1121555070', NULL),
+('MARCA002', 'Burger King', 'Burger King do Brasil S.A.', 'BK', '02747380000150', 'INATIVO', '04578905', 'Av. Juscelino Kubitschek, 1500', 'contato@burgerking.com.br', '1121236100', NULL),
+('MARCA003', 'Subway', 'Subway Partners Comércio Ltda.', 'Sub', '02963710000127', 'INATIVO', '04083002', 'Av. Paulista, 1000', 'contato@subway.com.br', '1132674000', NULL),
+('MARCA004', 'KFC', 'KFC Brasil Ltda.', 'Kentucky', '03657120000189', 'ATIVO', '04083001', 'Rua Vergueiro, 500', 'contato@kfc.com.br', '1133456000', NULL),
+('MARCA005', 'Pizza Hut', 'Pizza Hut Brasil S.A.', 'PizzaHut', '08211629000120', 'INATIVO', '01454000', 'Rua Augusta, 1500', 'contato@pizzahut.com.br', '1123567900', NULL);
 
 -- Inserindo Empresas Vinculadas às Marcas
-INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, estado, cep, logradouro, email, telefone, tipo, fkMarca)
+INSERT INTO empresa (codigo, nomeFantasia, razaoSocial, apelido, cnpj, estado, cep, logradouro, email, telefone, fkMarca)
 VALUES
-('EMP001', 'McDonald\s Loja 1', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 1', '42110090000141', 'ATIVO','04578006', 'Rua A, 100', 'loja1@mcdonalds.com.br', '1121555071', 'EMPRESA', 1),
-('EMP002', 'McDonald\s Loja 2', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 2', '42110090000142', 'ATIVO' ,'04578007', 'Rua B, 200', 'loja2@mcdonalds.com.br', '1121555072', 'EMPRESA', 1),
-('EMP003', 'Burger King Loja 1', 'Burger King do Brasil S.A.', 'BK Loja 1', '02747380000151', 'ATIVO','04578906', 'Rua C, 300', 'loja1@burgerking.com.br', '1121236101', 'EMPRESA', 2),
-('EMP004', 'Burger King Loja 2', 'Burger King do Brasil S.A.', 'BK Loja 2', '02747380000152', 'INATIVO','04578907', 'Rua D, 400', 'loja2@burgerking.com.br', '1121236102', 'EMPRESA', 2),
-('EMP005', 'Subway Loja 1', 'Subway Partners Comércio Ltda.', 'Sub Loja 1', '02963710000128', 'INATIVO','04083003', 'Rua E, 500', 'loja1@subway.com.br', '1132674001', 'EMPRESA', 3),
-('EMP006', 'Subway Loja 2', 'Subway Partners Comércio Ltda.', 'Sub Loja 2', '02963710000129', 'INATIVO','04083004', 'Rua F, 600', 'loja2@subway.com.br', '1132674002', 'EMPRESA', 3),
-('EMP007', 'KFC Loja 1', 'KFC Brasil Ltda.', 'KFC Loja 1', '03657120000190', 'ATIVO','04083005', 'Rua G, 700', 'loja1@kfc.com.br', '1133456001', 'EMPRESA', 4),
-('EMP008', 'Pizza Hut Loja 1', 'Pizza Hut Brasil S.A.', 'PizzaHut Loja 1', '08211629000121', 'ATIVO','01454001', 'Rua H, 800', 'loja1@pizzahut.com.br', '1123567901', 'EMPRESA', 5);
+('EMP001', 'McDonald\s Loja 1', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 1', '42110090000141', 'ATIVO', '04578006', 'Rua A, 100', 'loja1@mcdonalds.com.br', '1121555071', 1),
+('EMP002', 'McDonald\s Loja 2', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 2', '42110090000142', 'ATIVO', '04578007', 'Rua B, 200', 'loja2@mcdonalds.com.br', '1121555072', 1),
+('EMP003', 'Burger King Loja 1', 'Burger King do Brasil S.A.', 'BK Loja 1', '02747380000151', 'ATIVO', '04578906', 'Rua C, 300', 'loja1@burgerking.com.br', '1121236101', 2),
+('EMP004', 'Burger King Loja 2', 'Burger King do Brasil S.A.', 'BK Loja 2', '02747380000152', 'INATIVO', '04578907', 'Rua D, 400', 'loja2@burgerking.com.br', '1121236102', 2),
+('EMP005', 'Subway Loja 1', 'Subway Partners Comércio Ltda.', 'Sub Loja 1', '02963710000128', 'INATIVO', '04083003', 'Rua E, 500', 'loja1@subway.com.br', '1132674001', 3),
+('EMP006', 'Subway Loja 2', 'Subway Partners Comércio Ltda.', 'Sub Loja 2', '02963710000129', 'INATIVO', '04083004', 'Rua F, 600', 'loja2@subway.com.br', '1132674002', 3),
+('EMP007', 'KFC Loja 1', 'KFC Brasil Ltda.', 'KFC Loja 1', '03657120000190', 'ATIVO', '04083005', 'Rua G, 700', 'loja1@kfc.com.br', '1133456001', 4),
+('EMP008', 'Pizza Hut Loja 1', 'Pizza Hut Brasil S.A.', 'PizzaHut Loja 1', '08211629000121', 'ATIVO', '01454001', 'Rua H, 800', 'loja1@pizzahut.com.br', '1123567901', 5);
 
 -- Funcionários: Diretores
 INSERT INTO funcionario (nome, cpf, email, senha, estado, fkEmpresa)
