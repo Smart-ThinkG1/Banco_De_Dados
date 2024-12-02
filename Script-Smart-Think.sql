@@ -63,16 +63,22 @@ VALUES
 ('EMP001', 'McDonalds Loja 1', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 1', '42110090000141', 'ATIVO', '04578006', 'Rua A, 100', 'loja1@mcdonalds.com.br', '1121555071', 1),
 ('EMP002', 'McDonalds Loja 2', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 2', '42110090000142', 'ATIVO', '04578007', 'Rua B, 200', 'loja2@mcdonalds.com.br', '1121555072', 1),
 ('EMP003', 'McDonalds Loja 3', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 3', '42110090000143', 'ATIVO', '04578008', 'Rua C, 300', 'loja3@mcdonalds.com.br', '1121555073', 1),
+('EMP010', 'McDonalds Loja 4', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 4', '42110090000144', 'ATIVO', '04578009', 'Rua J, 1100', 'loja4@mcdonalds.com.br', '1121555074', 1),
+('EMP011', 'McDonalds Loja 5', 'Arcos Dourados Comércio de Alimentos Ltda.', 'McD Loja 5', '42110090000145', 'ATIVO', '04578010', 'Rua K, 1200', 'loja5@mcdonalds.com.br', '1121555075', 1),
 
 -- Unidades Burger King
 ('EMP004', 'Burger King Loja 1', 'Burger King do Brasil S.A.', 'BK Loja 1', '02747380000151', 'ATIVO', '04578906', 'Rua D, 400', 'loja1@burgerking.com.br', '1121236101', 2),
 ('EMP005', 'Burger King Loja 2', 'Burger King do Brasil S.A.', 'BK Loja 2', '02747380000152', 'ATIVO', '04578907', 'Rua E, 500', 'loja2@burgerking.com.br', '1121236102', 2),
 ('EMP006', 'Burger King Loja 3', 'Burger King do Brasil S.A.', 'BK Loja 3', '02747380000153', 'ATIVO', '04578908', 'Rua F, 600', 'loja3@burgerking.com.br', '1121236103', 2),
+('EMP012', 'Burger King Loja 4', 'Burger King do Brasil S.A.', 'BK Loja 4', '02747380000154', 'ATIVO', '04578909', 'Rua L, 1300', 'loja4@burgerking.com.br', '1121236104', 2),
+('EMP013', 'Burger King Loja 5', 'Burger King do Brasil S.A.', 'BK Loja 5', '02747380000155', 'ATIVO', '04578910', 'Rua M, 1400', 'loja5@burgerking.com.br', '1121236105', 2),
 
 -- Unidades KFC
 ('EMP007', 'KFC Loja 1', 'KFC Brasil Ltda.', 'KFC Loja 1', '03657120000190', 'ATIVO', '04083005', 'Rua G, 700', 'loja1@kfc.com.br', '1133456001', 3),
 ('EMP008', 'KFC Loja 2', 'KFC Brasil Ltda.', 'KFC Loja 2', '03657120000191', 'ATIVO', '04083006', 'Rua H, 800', 'loja2@kfc.com.br', '1133456002', 3),
-('EMP009', 'KFC Loja 3', 'KFC Brasil Ltda.', 'KFC Loja 3', '03657120000192', 'ATIVO', '04083007', 'Rua I, 900', 'loja3@kfc.com.br', '1133456003', 3);
+('EMP009', 'KFC Loja 3', 'KFC Brasil Ltda.', 'KFC Loja 3', '03657120000192', 'ATIVO', '04083007', 'Rua I, 900', 'loja3@kfc.com.br', '1133456003', 3),
+('EMP014', 'KFC Loja 4', 'KFC Brasil Ltda.', 'KFC Loja 4', '03657120000193', 'ATIVO', '04083008', 'Rua N, 1500', 'loja4@kfc.com.br', '1133456004', 3);
+
 
 -- Inserindo diretores das marcas
 INSERT INTO funcionario (nome, cpf, email, senha, estado, fkEmpresa)
@@ -82,7 +88,7 @@ VALUES
 ('Mariana Costa', '34567890123', 'mariana.diretor@kfc.com', 'senha_hashada', 'ATIVO', 3),
 ('Cristhian Lauriano Rocha', '85963214596','cristhian.marqueze@sptech.school','senha_hashada','ATIVO',4),
 ('Fernando Henrique Santos Soares', '65932478512','fernando.soares@sptech.school','senha_hashada','ATIVO',5),
-('Gustavo Aloe Gnecco', '20365478951', 'gustavo.moraes@sptech.school','senha_hashada','ATIVO',6),
+('Gustavo Aloe Gnecco', '20365478951', 'gustavo.moraes@sptech.school','senha_hashada','ATIVO', 6),
 ('Denyel Henry Feitosa', '65932415627','denyel.oliveira@sptech.school','senha_hashada','ATIVO',7),
 ('Ana Cladia Ferreira','89654712304','ana.fsilva@sptech.school','senha_hashada','ATIVO',8);
 
@@ -90,13 +96,13 @@ VALUES
 INSERT INTO funcionario (nome, cpf, email, senha, estado, fkEmpresa)
 VALUES
 -- Gerentes McDonald's
-('João Almeida', '12345678902', 'joao.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 4),
-('Pedro Gomes', '23456789014', 'pedro.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 5),
-('Laura Fernandes', '34567890124', 'laura.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 6),
+('João Almeida', '12345678902', 'joao.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 13),
+('Pedro Gomes', '23456789014', 'pedro.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 14),
+('Laura Fernandes', '34567890124', 'laura.gerente@mcdonalds.com', 'senha_hashada', 'ATIVO', 15),
 
 -- Gerentes Burger King
-('Maria Santos', '45678901235', 'maria.gerente@burgerking.com', 'senha_hashada', 'ATIVO', 7),
-('Rafael Lima', '56789012346', 'rafael.gerente@burgerking.com', 'senha_hashada', 'ATIVO', 8),
+('Maria Santos', '45678901235', 'maria.gerente@burgerking.com', 'senha_hashada', 'ATIVO', 16),
+('Rafael Lima', '56789012346', 'rafael.gerente@burgerking.com', 'senha_hashada', 'ATIVO', 17),
 ('Fernanda Rocha', '67890123457', 'fernanda.gerente@burgerking.com', 'senha_hashada', 'ATIVO', 9),
 
 -- Gerentes KFC
