@@ -5,10 +5,10 @@ CREATE TABLE empresa (
  id INT AUTO_INCREMENT PRIMARY KEY, 
  codigo VARCHAR(15) UNIQUE, 
  nomeFantasia VARCHAR(65),
- razaoSocial VARCHAR(80), 
+ razaoSocial VARCHAR(80), 		
  apelido VARCHAR(40), 
  cnpj CHAR(14) UNIQUE, 
- estado ENUM('ATIVO', 'INATIVO') NOT NULL,
+ estado ENUM('ATIVO', 'INATIVO') DEFAULT 'ATIVO',
  cep CHAR(8), 
  logradouro VARCHAR(100), 
  email VARCHAR(100), 
@@ -22,7 +22,7 @@ CREATE TABLE funcionario (
  cpf CHAR(14) UNIQUE, 
  email VARCHAR(100), 
  senha VARCHAR(255), -- Hash de senha tipo 
- estado ENUM('ATIVO', 'INATIVO') NOT NULL, 
+ estado ENUM('ATIVO', 'INATIVO') DEFAULT 'ATIVO',
 fkEmpresa INT, 
 FOREIGN KEY (fkEmpresa) REFERENCES empresa(id) ON DELETE CASCADE ); 
  
